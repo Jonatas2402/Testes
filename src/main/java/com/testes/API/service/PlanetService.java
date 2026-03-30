@@ -3,7 +3,6 @@ package com.testes.API.service;
 import com.testes.API.model.Planet;
 import com.testes.API.repository.PlanetRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 @Service

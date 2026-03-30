@@ -3,7 +3,6 @@ package com.testes.API.controller;
 import com.testes.API.model.Planet;
 import com.testes.API.service.PlanetService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
