@@ -1,7 +1,7 @@
-package com.testes.API.controller;
+package com.testes.API.web.controller;
 
-import com.testes.API.model.Planet;
-import com.testes.API.service.PlanetService;
+import com.testes.API.domain.Planet;
+import com.testes.API.domain.PlanetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

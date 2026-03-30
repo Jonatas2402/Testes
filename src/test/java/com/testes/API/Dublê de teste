@@ -1,0 +1,31 @@
+DUBLÊ DE TESTE
+
+- Definição = Dublês de testes é qualquer objeto "falso" que substitui uma dependência
+real durante um teste. Como um dublê de filme.
+
+- Tipos de dublês de teste
+* Dummy(Bobo) -> Só serve para preencher parâmetros , não é usado de verdade.
+ex = new Usuario("jonatas) //só pra passar como argumento
+método exige um objeto, mas você não usa ele nos testes, apenas para compilar, não
+é invocado.
+
+* Fake(implementação simplificado) -> implementação funcional, mas simplificada
+ex = Um banco de dados fake em memoria.
+Implementação funcional, mas não usado em produção.
+
+* Stub(Resposta pronta) -> Retorna valores fixos, não tem lógica real, você tem
+controle do retorno.
+ex = verificação de estado
+
+* Spy(Parcialmente real) -> Usa um objeto real, mas você pode "interferir"
+ex = UsuarioService service = spy(new UsuarioService());
+Deixar comportamento real, Sobrescreve partes.
+Gravam informações sobre como foram chamadas "Stub melhorado" (Verificação de estado
+e comportamento).
+
+* Mock (O mais importante) -> Simula comportamento, Permite verificar interações
+ex = verify(repository).save(any());
+Você pode testar: se método foi chamado, quantas vezes e com quais parâmetros.
+Interação exata com os objetos que o usam. Verificar se o fluxo desejado foi
+invocado(verificação de comportamento).
+Mais usado no mercado.

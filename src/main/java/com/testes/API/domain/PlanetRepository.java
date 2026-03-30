@@ -1,6 +1,5 @@
-package com.testes.API.repository;
+package com.testes.API.domain;
 
-import com.testes.API.model.Planet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

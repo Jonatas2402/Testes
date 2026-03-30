@@ -1,7 +1,5 @@
-package com.testes.API.service;
+package com.testes.API.domain;
 
-import com.testes.API.model.Planet;
-import com.testes.API.repository.PlanetRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

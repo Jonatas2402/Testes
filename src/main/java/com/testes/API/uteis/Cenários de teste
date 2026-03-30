@@ -1,0 +1,8 @@
+CENÁRIOS DE TESTE
+
+- Para realizar os teste precisamos saber o que testar e como testar.
+
+- Cenário = planet -> created -> Dados validos? se não = retorna 422(Unprocessable content)
+Primeiro cenário de teste
+
+- Cenário =
