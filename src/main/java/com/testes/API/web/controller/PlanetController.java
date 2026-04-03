@@ -23,4 +23,10 @@ public class PlanetController {
         service.deletarPorId(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Planet> findById(@PathVariable("id") Long id){
+        return service.buscaPorId(id).map(planet -> ResponseEntity.ok(planet))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 }

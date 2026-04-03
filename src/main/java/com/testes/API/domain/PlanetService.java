@@ -3,6 +3,8 @@ package com.testes.API.domain;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class PlanetService {
@@ -13,5 +15,8 @@ public class PlanetService {
     }
     public void deletarPorId(Long id){
         repository.deleteById(id);
+    }
+    public Optional<Planet> buscaPorId(Long id){
+        return repository.findById(id);
     }
 }
