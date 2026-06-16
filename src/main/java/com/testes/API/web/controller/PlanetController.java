@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tools.jackson.databind.deser.bean.CreatorCandidate;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("planet")
@@ -29,9 +32,17 @@ public class PlanetController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
     @GetMapping("/{name}")
-    public ResponseEntity<Planet> buscaNome(@PathVariable("id") String nome){
+    public ResponseEntity<Planet> buscaNome(@PathVariable("name") String nome){
         return service.buscaPorNome(nome).map(planet -> ResponseEntity.ok(planet))
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    /*Busca com filtro*/
+    @GetMapping
+    /*@RequestParam(required = false diz que esse filtro não é obrigatório*/
+    public ResponseEntity<List<Planet>> list(@RequestParam(required = false) String terrain,
+                                             @RequestParam(required = false) String climate){
+        List<Planet> planets = service.listaPlanetas(terrain, climate);
+        return ResponseEntity.ok(planets);
     }
 
 }

@@ -1,8 +1,10 @@
 package com.testes.API.domain;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,5 +23,9 @@ public class PlanetService {
     }
     public Optional<Planet> buscaPorNome(String nome){
         return repository.findByName(nome);
+    }
+    public List<Planet> listaPlanetas(String climate, String terrain){
+        Example<Planet> query = QueryBuilder.makeQuery(new Planet(terrain, climate));
+        return repository.findAll(query);
     }
 }

@@ -48,6 +48,7 @@ public class PlanetServiceTest {
         assertThatThrownBy(() ->planetService.criandoPlaneta(INVALID_PLANET))
                 .isInstanceOf(RuntimeException.class);
     }
+    /*TESTE DE CONSULTA POR ID*/
     @Test
     public void getPlanet_ByExistingId_ReturnsPlanet(){
         when(repository.findById(1L)).thenReturn(Optional.of(PLANET));
@@ -55,7 +56,7 @@ public class PlanetServiceTest {
         Optional<Planet> sut = planetService.buscaPorId(1L);
 
         assertThat(sut).isNotEmpty();
-        assertThat(sut).contains(PLANET);
+        assertThat(sut.get()).isEqualTo(PLANET);
     }
     @Test
     public void getPlanet_ByUnexistingId_ReturnsEmpty(){
@@ -65,21 +66,27 @@ public class PlanetServiceTest {
 
         assertThat(sut).isEmpty();
     }
+    /*TESTE DE CONSULTA POR NOME*/
     @Test
     public void getPlanet_ByExistingName_ReturnsPlanet() {
-        when(repository.findByName("")).thenReturn(Optional.of(PLANET));
+        /*quando fizer a busca e estiver vazio, então retorne*/
+        when(repository.findByName(PLANET.getName())).thenReturn(Optional.of(PLANET));
 
-        Optional<Planet> sut = planetService.buscaPorNome("");
+        Optional<Planet> sut = planetService.buscaPorNome(PLANET.getName());
 
         assertThat(sut).isNotEmpty();
-        assertThat(sut).contains(PLANET);
+        assertThat(sut.get()).isEqualTo(PLANET);
     }
     @Test
     public void getPlanet_ByUnexistingName_ReturnsEmpty() {
-        when(repository.findByName("")).thenReturn(Optional.empty());
+        final String name= "Unexisting Name";
+        when(repository.findByName(name)).thenReturn(Optional.empty());
 
-        Optional<Planet> sut = planetService.buscaPorNome("");
+        Optional<Planet> sut = planetService.buscaPorNome(name);
 
         assertThat(sut).isEmpty();
     }
+    /*TESTE LISTAGEM DE PLANETAS*/
+    @Test
+    public void
 }
